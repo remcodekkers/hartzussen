@@ -1,0 +1,409 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hartszussen 2026</title>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Anton&family=Oswald:wght@400;500;700&family=Roboto+Condensed:wght@400;700&family=Roboto:wght@300;400;500&display=swap" rel="stylesheet">
+
+    <style>
+        :root {
+            /* Color Palette extracted from images */
+            --bg-color: #5d7a60; /* The Sage/Olive Green */
+            --card-bg: #e6dccf;   /* Beige/Sand */
+            --card-border: #ce804e; /* Terracotta/Orange border */
+            --text-dark: #1a2e22; /* Dark Green/Black text */
+            --accent-green: #2e4a36;
+            --white: #ffffff;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Roboto', sans-serif;
+            background-color: var(--bg-color);
+            color: var(--white);
+            line-height: 1.5;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        /* --- Layout --- */
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        /* --- Header Section --- */
+        header {
+            margin-bottom: 40px;
+            position: relative;
+        }
+
+        .header-top {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+        }
+
+        h1.year-title {
+            font-family: 'Oswald', sans-serif; /* Using Oswald for the "2026" look */
+            font-size: 5rem; /* Big like the image */
+            color: #b59e6b; /* Gold/brownish tone */
+            font-weight: 400;
+            line-height: 1;
+        }
+
+        .logo-area {
+            text-align: center;
+        }
+
+        .logo-svg {
+            width: 80px;
+            height: auto;
+            fill: none;
+            stroke: var(--white);
+            stroke-width: 2;
+        }
+        
+        .logo-text {
+            font-family: 'Brush Script MT', cursive; /* Fallback for the script font */
+            font-size: 1.2rem;
+            margin-top: -10px;
+            display: block;
+        }
+
+        .intro-text {
+            margin-top: 20px;
+            font-size: 1rem;
+            line-height: 1.6;
+            font-weight: 500;
+        }
+
+        /* --- Event List Styles --- */
+        .events-list {
+            display: flex;
+            flex-direction: column;
+            gap: 25px;
+        }
+
+        .event-card {
+            background-color: var(--card-bg);
+            border: 3px solid var(--card-border);
+            border-radius: 50px; /* The pill shape */
+            padding: 20px 30px;
+            display: flex;
+            flex-direction: row;
+            color: var(--text-dark);
+            align-items: stretch;
+            min-height: 140px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+        }
+
+        /* Left side: Date */
+        .date-col {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-width: 100px;
+            padding-right: 20px;
+            border-right: 1px solid rgba(0,0,0,0.1); /* Subtle divider */
+            margin-right: 20px;
+        }
+
+        .month {
+            font-family: 'Oswald', sans-serif;
+            text-transform: uppercase;
+            font-weight: 700;
+            font-size: 0.9rem;
+            letter-spacing: 1px;
+            color: var(--accent-green);
+        }
+
+        .day {
+            font-family: 'Oswald', sans-serif; /* Condensed impact font */
+            font-size: 3.5rem;
+            line-height: 1;
+            font-weight: 700;
+            color: var(--accent-green);
+        }
+
+        .time {
+            font-family: 'Oswald', sans-serif;
+            font-size: 0.85rem;
+            font-weight: 700;
+            text-align: center;
+            margin-top: 5px;
+        }
+
+        /* Right side: Content */
+        .content-col {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .event-title {
+            font-family: 'Oswald', sans-serif;
+            font-size: 1.5rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            margin-bottom: 8px;
+            color: var(--text-dark);
+        }
+
+        .event-desc {
+            font-size: 0.85rem;
+            line-height: 1.4;
+            color: #333;
+        }
+
+        /* Specific fix for "Hartscirkel" box which looks different */
+        .extra-offer-card {
+            background-color: var(--card-bg);
+            border: 3px solid var(--card-border); /* Same border */
+            border-radius: 40px;
+            padding: 30px;
+            color: var(--text-dark);
+            margin-top: 20px;
+        }
+        
+        .extra-offer-title {
+            font-family: 'Oswald', sans-serif;
+            font-size: 1.8rem;
+            text-transform: uppercase;
+            margin-bottom: 15px;
+            font-weight: 700;
+        }
+
+        .extra-offer-text p {
+            margin-bottom: 15px;
+            font-size: 0.9rem;
+        }
+
+        .pricing-box {
+            margin-top: 40px;
+            margin-bottom: 40px;
+            text-align: left;
+            font-weight: 500;
+            font-size: 1.1rem;
+            line-height: 1.5;
+        }
+        
+        .contact-info {
+            margin-top: 10px;
+            font-weight: 700;
+        }
+
+        .footer-link {
+            text-align: center;
+            margin-top: 40px;
+            margin-bottom: 20px;
+            font-family: 'Oswald', sans-serif;
+            font-size: 1.2rem;
+        }
+        .footer-link a {
+            color: white;
+            text-decoration: none;
+        }
+
+        /* --- Mobile Responsiveness --- */
+        @media (max-width: 600px) {
+            .event-card {
+                flex-direction: column;
+                border-radius: 30px;
+                padding: 20px;
+                text-align: center;
+            }
+
+            .date-col {
+                border-right: none;
+                border-bottom: 1px solid rgba(0,0,0,0.1);
+                padding-right: 0;
+                margin-right: 0;
+                padding-bottom: 15px;
+                margin-bottom: 15px;
+                flex-direction: row; /* Put Month and Day side by side on mobile */
+                gap: 10px;
+            }
+            
+            .day {
+                font-size: 2.5rem;
+            }
+
+            .header-top {
+                flex-direction: column-reverse;
+                align-items: center;
+            }
+            
+            h1.year-title {
+                font-size: 4rem;
+                align-self: flex-start;
+            }
+            
+            .logo-area {
+                margin-bottom: 20px;
+                align-self: flex-end;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    
+    <div class="pricing-box">
+        10:00 – 16:00 uur, Boxtel (N-Br) €99,- per Hartszussen-dag. Avondsessie €49,- inclusief thee en een vegetarische lunch, passend bij het seizoen.<br>
+        <div class="contact-info">
+            Aanmelden via jordie@jordiemeteene.nl of stuur een berichtje aan Marieke (06-27843309) of Jordie (06-18050200)
+        </div>
+    </div>
+
+    <header>
+        <div class="header-top">
+            <h1 class="year-title">2026</h1>
+            <div class="logo-area">
+                <svg class="logo-svg" viewBox="0 0 100 100">
+                    <path d="M50 90 C 20 60 0 40 20 20 C 35 5 45 15 50 30 C 55 15 65 5 80 20 C 100 40 80 60 50 90 Z" stroke="white" fill="none" />
+                    <path d="M50 30 C 50 30 80 0 80 20" stroke="white" fill="none" opacity="0.5"/> </svg>
+                <span class="logo-text">Hartszussen</span>
+            </div>
+        </div>
+        <div class="intro-text">
+            Hartszussen Jordie en Marieke van den Heuvel zetten met liefde de Hartszussen-dagen voort met mooie themadagen en nieuw dit jaar: een volle maan-avond en de Hartscirkel. We gebruiken de energie van de seizoenen in de thema's. Een cadeau voor jezelf! Deze prachtige plek in de natuur geeft bedding voor een verandering in diepte. Zodat jij dichterbij je kern komt, in verbinding met hoofd, hart en lijf.
+        </div>
+    </header>
+
+    <div class="events-list" id="events-container">
+        </div>
+
+    <div class="extra-offer-card">
+        <h2 class="extra-offer-title">Extra aanbod: Hartscirkel</h2>
+        <div class="extra-offer-text">
+            <p>Met een vaste groep, een Hartscirkel, verdiepen we de thema's die we aanraken op de Hartszussen-dagen. We laten ons hierbij uiteraard leiden door de seizoenen, de rituelen van natuurvolken en de wijsheid in onszelf. Dat wat zich aandient, is het juiste. Passend bij dat wat er mag zijn op jouw weg naar wie je in je kern bent. Terug naar heelheid.</p>
+            <p>Zoals je dat van ons gewend bent, verweven we soundhealing, lichaamswerk, energiemanagement, visualisaties en systemisch werk iedere keer tot een passend programma. Het start om 18:30 uur met een lichte maaltijd bij het vuur en we ronden om 21:30 uur af.</p>
+            <p>In het eerste halfjaar nemen we je 5 woensdagavonden mee op reis in deze cirkel. Daarna is het tijd om dit in te laten zakken in je dagelijkse werkelijkheid. Tussendoor houden we digitaal de cirkel in verbinding en geven we tips, inspiratie en kan iedereen ervaringen en uitdagingen met elkaar delen. Aan het einde van het jaar komen we weer samen om te delen en te reflecteren op jouw eigen pad dat je hebt gelopen.</p>
+            <p><strong>Woensdagavonden 11 febr, 25 mrt, 15 apr, 27 mei, 24 juni, 9 dec<br>Totaal: €249</strong></p>
+            <p style="font-style: italic;">Wil je meer weten? Bel ons. We vertellen er graag meer over.</p>
+        </div>
+    </div>
+
+    <div class="footer-link">
+        <a href="http://www.hartszussen.nl" target="_blank">www.hartszussen.nl</a>
+    </div>
+
+</div>
+
+<script>
+    /**
+     * CMS STRUCTURE
+     * This array simulates a database response. 
+     * To update this site later, you only need to edit this list 
+     * or replace it with a fetch() call to a real CMS.
+     */
+    const eventsData = [
+        {
+            month: "Januari",
+            day: "11",
+            title: "Voorouders",
+            description: "Je verbinden met je voorouders geeft je inzichten in familiepatronen en een diepere bedding in jouw leven. Het zijn jouw wortels. Wat mag ontkiemen, wat voedt jou en waar mag je ruimte voor vrijmaken? We nemen je mee in een Vuurceremonie, een systemische oefening waarbij je je zes voorouders 'ontmoet' en het onderzoeken van jouw wortels."
+        },
+        {
+            month: "Februari",
+            day: "8",
+            title: "Op je plek staan",
+            description: "Hoe kan je vanuit je wezenskern op je eigen plek staan? Dit start bij het kijken naar je familiesysteem. Jij bent hier omdat je vader je vader is en je moeder je moeder. We starten met een Aardeceremonie en een soundhealing om te landen. Vervolgens een lichaamsoefening om dingen los te laten, een systemische oefening over jouw bedding, een onderzoek naar jouw familiesysteem en een begeleide visualisatie om steviger op je voeten te staan."
+        },
+        {
+            month: "Maart",
+            day: "8",
+            title: "Schaduw en licht in jezelf",
+            description: "De lente (Ostara) start en dit betekent dat de dag en nacht even lang zijn. Een perfect moment om stil te staan bij het licht en de schaduw in jou. Wat als het er allebei kan zijn? In balans. Op internationale vrouwendag, met steun vanuit de vrouwelijke lijn, ga jij dit onderzoek aan. We werken met een systemische oefening, lopen het labyrinth en verbinden ons met 'je innerlijke kind' in ons hart. Je ervaart na afloop meer heelheid op alle aspecten in jezelf."
+        },
+        {
+            month: "April",
+            day: "2",
+            time: "18:30 - 21.30 UUR",
+            title: "Volle maan avond",
+            description: "De roze maan in weegschaal. Een periode waarin de dag steeds langer wordt dan de nacht. Vanuit de natuurvolken het moment om je voor te bereiden op groei, te hernieuwen en te onderzoeken hoe jij in verbinding staat met je buitenwereld en je binnenwereld. We starten rondom het vuur met een lichte maaltijd, doen een opstelling met de volle maan, verbinden ons met de sterrenhemel, laten ons lijf bewegen om los te laten wat niet meer nodig is en sluiten af met een soundhealing."
+        },
+        {
+            month: "Juni",
+            day: "28",
+            title: "Vrouwencirkel De Roos",
+            description: "De energie van midzomer (Litha) helpt ons om in het nu te zijn en we ruimen energie op die je niet helpt in het laten bloeien van jouw roos. Hoe blijf je trouw aan jezelf? Wat steekt jou? Wat voedt jou? We starten met een Rozenceremonie die eeuwenlang van vrouw op vrouw is doorgegeven en maken onze eigen Aqua de Florida (Bloemenwater). De wijsheid van Isis en Maria Magdalena zit door deze dag verweven zodat jij verbinding maakt met de roos in jezelf, je levenskracht."
+        },
+        {
+            month: "Augustus",
+            day: "30",
+            title: "(zelf)Liefde",
+            description: "Vertrouwen, groeien en controle loslaten komen aan bod. Hoe kan je jezelf meer liefde geven? Beter voor jezelf zorgen, omdat je dat verdient. Leven vanuit je hart, het klinkt simpel maar hoe doe je dat? Door systemische oefeningen verbindt jij je met het pad van je hart en hoe jij universele liefde ervaart. Door een liefdevolle soundhealing en een Hartceremonie kom je steeds dichterbij je eigen kern. Laat je meenemen door de Hartszussen, wees lief voor jezelf."
+        },
+        {
+            month: "September",
+            day: "20",
+            title: "Balans",
+            description: "Balans in je leven kan op allerlei aspecten spelen: in je lijf, je emoties, relaties, werk en in jezelf. Hoeveel geef je? Hoeveel neem je? Hoe zit dat bij jou en hoe zou je het willen? We geven je tools om meer balans te ervaren. Door praktische oefeningen met je lijf, te onderzoeken waar jij in je leven energie aan geeft en hoe jij intuïtief de balans liever zou willen. Natuurlijk zijn een ceremonie bij het vuur, systemische oefeningen en een lekkere gezonde lunch onderdeel van deze dag."
+        },
+        {
+            month: "Oktober",
+            day: "4",
+            title: "Loslaten",
+            description: "In de herfst (Mabon) kijken we naar dat wat het afgelopen jaar heeft mogen groeien. Tijd om dingen af te ronden, zodat er weer ruimte komt voor het nieuwe. Je gaat je eigen oogst verzamelen, het labyrinth lopen en van jouw successen genieten. Dankbaarheid is daarbij onlosmakelijk verbonden. Hoe blijf je trouw aan jezelf? We willen je laten ervaren dat je wordt gedragen. Geniet van dit gevoel en laat je meenemen in een Oogstceremonie en een soundhealing."
+        },
+        {
+            month: "November",
+            day: "15",
+            title: "Opstellingendag",
+            description: "Deze dag onderzoeken we patronen in systemen. Dat kan een familieopstelling, organisatieopstelling (bij werkgerelateerde vragen) of een thematische opstelling zijn over jouw vraag of probleem waar je tegenaan loopt. Tussen de opstellingen door, doen we oefeningen om in verbinding te komen met hoofd-hart-buik. Als representant leer je meer over wat een opstelling is en het goede nieuws is: iedereen kan representeren. Als vraaginbrenger staat jouw vraag centraal."
+        },
+        {
+            month: "December",
+            day: "13",
+            title: "Yule nachten",
+            description: "We nemen je mee in oeroude tradities en wijsheden over de 12 heilige nachten; de Yule nachten. Dit vraagt om bezinning, rust en stilstaan in deze magische midwintertijd en ook de weg terug naar het licht; inzicht krijgen in je dromen voor het nieuwe jaar. Een systemische oefening over het donker en licht in jou, een Yule ceremonie bij het vuur, een klankschalenhealing en een creatieve vorm voor je dromen komen aan bod."
+        }
+    ];
+
+    // Function to render the list
+    function renderEvents() {
+        const container = document.getElementById('events-container');
+        
+        // Loop through data and create HTML
+        const eventsHTML = eventsData.map(event => {
+            // Check if there is a specific time to display under the day
+            const timeHTML = event.time ? `<div class="time">${event.time}</div>` : '';
+
+            return `
+                <article class="event-card">
+                    <div class="date-col">
+                        <span class="month">${event.month}</span>
+                        <span class="day">${event.day}</span>
+                        ${timeHTML}
+                    </div>
+                    <div class="content-col">
+                        <h2 class="event-title">${event.title}</h2>
+                        <p class="event-desc">${event.description}</p>
+                    </div>
+                </article>
+            `;
+        }).join('');
+
+        container.innerHTML = eventsHTML;
+    }
+
+    // Run render on load
+    document.addEventListener('DOMContentLoaded', renderEvents);
+</script>
+
+</body>
+</html>
